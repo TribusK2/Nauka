@@ -5,11 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JavaZad02</title>
+    <style>
+    h3 {
+        text-align: center;
+    }
+    #demo{
+        text-align: center; color: black; font-family: sans-serif; font-size: 20px; 
+        position: absolute; top: 70px; left: 50%; transform: translate(-50%);
+    }
+    #but{
+        position: relative; left: 50%; transform: translate(-50%); top: 100px;
+    }
+    #spa{
+        color: black;
+    }
+    </style>
     <script>
-    
+    function funkcja() {
+        document.getElementById("spa").style.color = "red";
+        document.getElementById("spa").style.fontSize = "40px";
+        document.getElementById("spa").style.fontStretch = "ultra-condensed";
+        document.getElementById("spa").style.rotate = "90deg";
+        var a = document.getElementById("spa").innerHTML;
+        var b = a.replace("o","U");
+        document.getElementById("spa").innerHTML = b;
+    }
     </script>
 </head>
 <body>
-    <h1>Start</h1>
+    <h3>Klikaj, jak żeś odważny!</h3> 
+    <button id=but type="button" onclick="funkcja()">Click!</button>
+    <p id=demo>o<span id=spa>o</span>o</p>
 </body>
 </html>
