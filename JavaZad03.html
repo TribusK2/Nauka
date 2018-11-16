@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaZad03</title>
+    <style>
+    #a {
+        font-size: 45px; text-align: center;
+    }
+    #but {
+        position: absolute; left: 50%; top: 200px; transform: translate(-50%);
+    }
+    #in1 {
+        position: absolute; left: 50%; top: 120px; transform: translate(-50%); width: 60px;
+    }
+    #in2 {
+        position: absolute; left: 50%; top: 150px; transform: translate(-50%); width: 60px;
+    }
+    #pi {
+         position: relative; top: 100px; font-size: 30px;
+        background-color: lightblue; margin-left: 590px; margin-right: 590px; padding-left: 5px;
+    }
+    </style>
+    <script>
+        function fun() {
+            var a = +document.getElementById("in1").value;
+            var b = +document.getElementById("in2").value;
+            var x = a % b;
+            document.getElementById("pip").innerHTML = x;
+        }
+    </script>
+</head>
+<body>
+    <p id="a">Oblicz modulus (%)</p>
+        <input id="in1" type="number">
+        <input id="in2" type="number">
+    <button id="but" onclick="fun()">Wciskaj!</button>
+    <p id="pi">Wynik: <span id="pip">???</span></p>
+</body>
+</html>
