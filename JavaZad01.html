@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaZad01</title>
+   <script>
+       
+       function myFunction() {
+           var y = new Date().getFullYear();
+           var m = new Date().getMonth()+1;
+           var d = new Date().getDate();
+        document.getElementById("b").innerHTML = y + "." + m + "." + d;
+       }
+       
+   </script>
+</head>
+<body>
+    <h2>Dzisiaj jest:</h2>
+    <p id="b">Wciśnij guzik.</p>
+    <button type="button" onclick="myFunction()">Click</button>
+    
+    
+</body>
+</html>
