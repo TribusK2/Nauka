@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad6</title>
+    <script>
+        function moja_funkcja(){
+            var a = +document.getElementById("num").value; 
+            for (var i=2; i<a; i++) {
+                if (a % i == 0) {x = "Liczba nie jest liczbą pierwszą";break}    
+                else {x = "Liczba jest liczbą pierwszą";};
+            }       
+            document.getElementById("par").innerHTML = x;
+        } 
+    </script>
+</head>
+<body>
+    <h2>Sprawdź liczbę, czy jest pierwszą</h2>
+    Podaj liczbę: <input id="num" type="number" value="20">
+    <button onclick="moja_funkcja()">Sprawdź</button>
+    <p id="par">???</p>
+</body>
+</html>

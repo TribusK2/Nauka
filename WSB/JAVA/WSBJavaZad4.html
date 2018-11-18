@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad4</title>
+    <script>
+        function moja_funkcja(){
+            var a = +document.getElementById("num").value;   //pobranie wartości liczbowej z pola "num"
+            if (a % 2 == 0) {x = "Liczba jest parzysta";}    //określenie funkcji; określenie wartosci x, gdy funkcja jest spełniona          
+             else {x = "Liczba jest nieparzysta";}           //określenie wartosci x, gdy funkcja nie jest spełniona
+            document.getElementById("par").innerHTML = x;    //wpisanie w paragrafie "par" wyniku
+        }
+    </script>
+</head>
+<body>
+    <h2>Sprawdzanie parzystości liczby</h2>
+    Podaj liczbę: <input id="num" type="number" value="20">
+    <button onclick="moja_funkcja()">Sprawdź</button>
+    <p id="par">???</p>
+</body>
+</html>

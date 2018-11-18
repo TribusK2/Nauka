@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad5</title>
+    <script>
+        function moja_funkcja(){
+            var a = +document.getElementById("num").value;   //pobieramy wartość z pola "num" i definiujemy jako a
+            var x = 1;                                       //definiujemy wartość początkową x
+            for (var i = 1; i <= a; i++)                     //definiujemy wartość początkową i; definiujemy zakres podając wartość końcowa i; skok i (i=i+1, lub i+=1, lub i++)
+            {x *= i};                                        //wzór pętli (x=x*i, lub x*=i)
+            document.getElementById("par").innerHTML = x;}   //obliczony x wstawiamy w paragrafie "par"
+    </script>
+</head>
+<body>
+    <h2>Oblicz silnię</h2>
+    Podaj liczbę: <input id="num" type="number" value="20">
+    <button onclick="moja_funkcja()">Oblicz</button>
+    <p id="par">???</p>
+</body>
+</html>
