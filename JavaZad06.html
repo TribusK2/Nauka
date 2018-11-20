@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaZad06</title>
+    <style>
+    #il{float: left; padding-right: 10px;}
+    #pt{margin-bottom: 0px;}
+    </style>
+    <script>
+        function txt(){
+            var t = document.getElementById("pole").value.toString();
+            var s = t.replace(/\s/g, "").length;                        //g oznacza global, czyli zamienia wszystkie, a nie tylko pierwszy (można dpisać jeszcze i (/ /gi), co oznacza, że ignoruje duże i małe litery). \s oznacza wszystkie tzw. whitespace, czyli spacje, entery i tabulatory.
+            document.getElementById("par").innerHTML = s;
+        }
+        function res(){
+            document.getElementById("pole").value = "";
+        }
+    </script>
+</head>
+<body>
+    <h2>Policz ilość znaków w tekście</h2>
+    <p id="pt">Wpisz tekst</p>
+    <textarea name="nazwa" id="pole" cols="30" rows="10" ondblclick="res()" oninput="txt()"></textarea><br>
+    <p id="il">Ilość znaków wynosi:</p>  
+    <p id="par">???</p>
+</body>
+</html>
