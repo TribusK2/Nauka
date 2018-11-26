@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WSBJavaZad12</title>
     <script>
-        function spr(){
+        function spr() { 
             var a = document.getElementById("nazwa").value;
             var b = document.getElementById("cena").value;
             var c = document.getElementById("waluta").value;
-            var d = [a,b,c];
-            document.getElementById("put").innerHTML = d[0]+": "+d[1]+" "+d[2];
+            var ol = document.getElementById("olo");
+            var d = a+": "+b+" "+c;
+            var node = document.createElement("li");
+            var textnode = document.createTextNode(d);
+            node.appendChild(textnode);
+            ol.appendChild(node);
         }
+           
     </script>
 </head>
 <body>
@@ -26,7 +31,9 @@
             <option value="CHF">CHF</option>
         </select>
     </p>
-    <button id="but" onclick="spr()">Wyświetl</button>
-    <p id="put">???</p>
+    <button onclick="spr()">Dodaj</button>
+    <ol id="olo">
+        
+    </ol>
 </body>
 </html>
