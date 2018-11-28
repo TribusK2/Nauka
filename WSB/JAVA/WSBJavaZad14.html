@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad14</title>
+    <script>
+        function fun(){
+            var ty = new Date().getFullYear();
+            var tm = new Date().getMonth()+1;
+            var td = new Date().getDate();
+            var t = ty+"-"+tm+"-"+td;
+            var tr = ty.toString()+tm.toString()+td.toString();
+
+            var birt = new Date(document.getElementById("dat").value);
+            var by = birt.getFullYear();
+            var bm = birt.getMonth()+1;
+            var bd = birt.getDate();
+            var b = by+"-"+bm+"-"+bd;
+            var br = by.toString()+bm.toString()+bd.toString();
+
+            document.getElementById("put").innerHTML = t
+            document.getElementById("put2").innerHTML = b
+
+            var ry = ty-by;
+            var rm = tm-bm;
+            var rd = td-bd;
+            var r = tr-br;
+            if(r<180000){r = "Spieprzaj smarkaczu!"}
+            else{r = "Tak, jesteś pełnoletni"}
+            
+            document.getElementById("put3").innerHTML = r;
+        };
+    </script>
+</head>
+<body>
+    <p>Podaj datę urodzenia:</p>
+    <input type="date" id="dat">
+    <button onclick="fun()">Sprawdź, czy jesteś pełnoletni.</button><br>
+    <p>Aktualna data: <span id="put">???</span></p>
+    <p>Twoja data urodzin: <span id="put2">???</span></p>
+    <p id="put3"></p>
+</body>
+</html>
