@@ -24,7 +24,7 @@
         function szukaj(){
            var f = document.getElementById("fraza").value;
            var t = document.getElementById("txt").value;
-           var e = new RegExp(f, "gi"); // Tworzymy nowy zapis, który wykorzytamy później, cyli /f/gi, gdzie f to wyrażenie z var f.
+           var e = new RegExp(f, "gi"); // Tworzymy nowy zapis, który wykorzystamy później, cyli /f/gi, gdzie f to wyrażenie z var f.
            var r = t.replace(e, '<span style="color: red">' + f + '</span>');
            document.getElementById("res").innerHTML = r;
         };
@@ -35,9 +35,9 @@
     <p>Wklej poniżej przeszukiwany tekst i wciśnij <button onclick="zaladuj()">Załaduj</button></p>
     <textarea id="txt" cols="50" rows="10"></textarea><br>
     <p> </p>
-    Wpisz wyszukiwaną frazę: <input id="fraza" type="text" oninput="szukaj()"><br>
+    Wpisz wyszukiwaną frazę: <input id="fraza" type="text" oninput="szukaj()" value="Załaduj tekst"><br>
     <div id="sty">
-        <p id="res">Załaduj tekst</p>
+        <p id="res">Załaduj tekst, klikając guzik na górze strony.</p>
     </div>
 </body>
 </html>
