@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaZad08</title>
+    <style>
+    #sty{
+        background-color: whitesmoke;
+        width: 400px;
+        border: 1px solid darkblue;
+        margin-top: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+    </style>
+    <script>
+        function zaladuj(){
+            var txt = document.getElementById("txt").value;
+            document.getElementById("res").innerHTML = txt;
+        };
+        function szukaj(){
+           var f = document.getElementById("fraza").value;
+           var t = document.getElementById("txt").value;
+           var e = new RegExp(f, "gi"); // Tworzymy nowy zapis, który wykorzytamy później, cyli /f/gi, gdzie f to wyrażenie z var f.
+           var r = t.replace(e, '<span style="color: red">' + f + '</span>');
+           document.getElementById("res").innerHTML = r;
+        };
+    </script>
+</head>
+<body>
+    
+    <p>Wklej poniżej przeszukiwany tekst i wciśnij <button onclick="zaladuj()">Załaduj</button></p>
+    <textarea id="txt" cols="50" rows="10"></textarea><br>
+    <p> </p>
+    Wpisz wyszukiwaną frazę: <input id="fraza" type="text" oninput="szukaj()"><br>
+    <div id="sty">
+        <p id="res">Załaduj tekst</p>
+    </div>
+</body>
+</html>
