@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad15</title>
+    <script>
+    window.onload = function(){
+        var x = document.getElementById("hig");
+        x.addEventListener("input",myFunction);
+        function myFunction(){
+            var y = +document.getElementById("hig").value;
+            if (Boolean(y) == true) {document.getElementById("kom").innerHTML="";}
+            else {document.getElementById("kom").innerHTML="Proszę podać liczby"};
+        };
+        document.getElementById("kom").style.color="red";
+    };
+    </script>
+</head>
+<body>
+    Podaj wzrost: <input id="hig" type="text">
+    <span id="kom"></span>
+</body>
+</html>
