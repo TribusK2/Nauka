@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad16</title>
+    <style>
+    #okno{
+        background-color: lightgoldenrodyellow;
+        width: 220px;
+        border: 3px solid goldenrod;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        text-align: center;
+    }
+    #spa{
+        color: darkgoldenrod;
+        font-weight: bold;
+    }
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("spa").innerHTML = window.innerWidth;
+        };
+        window.onresize = function() {
+            document.getElementById("par").innerHTML = "";
+            var size = window.innerWidth;
+            document.getElementById("spa").innerHTML = size;
+            if (window.innerWidth < 500) {
+                if (confirm("Czy chcesz zamknąć to okno?"))
+                    {document.getElementById("par").innerHTML = "No to zamknij.";}
+                else{document.getElementById("par").innerHTML = "";}
+            }; 
+              
+        };
+    </script>
+</head>
+<body>
+    <div id="okno">
+        <p>Szerokość okna: <span id="spa">???</span> px</p>
+    </div>
+     
+    <p id="par"></p>
+</body>
+</html>
