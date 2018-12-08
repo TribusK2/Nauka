@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad17</title>
+    <style>
+    p{
+        font-family: Arial, Helvetica, sans-serif;
+        margin-left: 25%;
+        margin-bottom: 2px; margin-top: 2px;
+    }
+    span{
+        font-weight: bold; color: darkcyan
+    }
+    h1{
+        font-family: monospace; color: azure;
+        background-color: darkcyan;
+        border: 2px solid darkblue;
+        margin-left: 20%; margin-right: 20%; text-align: center;
+        padding:5px;
+    }
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("agent").innerHTML = navigator.userAgent;
+            document.getElementById("name").innerHTML = navigator.appName;
+            document.getElementById("code").innerHTML = navigator.appCodeName;
+            document.getElementById("ver").innerHTML = navigator.appVersion;
+            document.getElementById("engin").innerHTML = navigator.product;
+            document.getElementById("plat").innerHTML = navigator.platform;
+            document.getElementById("lang").innerHTML = navigator.language;
+            document.getElementById("langs").innerHTML = navigator.languages;
+            var cook = navigator.cookieEnabled;
+                if (cook==true) {document.getElementById("cook").innerHTML = "Tak"}
+                    else{document.getElementById("cook").innerHTML = "Nie"};
+            var java = navigator.javaEnabled();
+                if (java==true) {document.getElementById("java").innerHTML = "Tak"}
+                    else{document.getElementById("java").innerHTML = "Nie"};
+            var line = navigator.onLine;
+                if (line==true) {document.getElementById("line").innerHTML = "OnLine"}
+                    else{document.getElementById("line").innerHTML = "OffLine"};
+        }
+    </script>
+</head>
+<body>
+    <h1>Informacje o Twojej przeglądarce:</h1>
+    <p>User Agent: <span id="agent">???</span></p>
+    <p>Nazwa przeglądarki: <span id="name">???</span> - <span id="code">???</span></p>
+    <p>Wersja przeglądarki: <span id="ver">???</span></p>
+    <p>Silnik przeglądarki: <span id="engin">???</span></p>
+    <p>Platforma: <span id="plat">???</span></p>
+    <p>Język: <span id="lang">???</span> (<span id="langs">???</span>)</p>
+    <p>Akceptacja ciasteczek: <span id="cook">???</span></p>
+    <p>Akceptacja Javascript: <span id="java">???</span></p>
+    <p>Stan: <span id="line">???</span></p>
+</body>
+</html>
