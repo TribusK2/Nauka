@@ -14,19 +14,26 @@
     .org { background-color: orange;}
     </style>
     <script>
-    
+        function background_color(){
+            var col = document.getElementById("col");
+            var opt = col.options[col.selectedIndex].value;
+            document.body.style.backgroundColor = opt;
+            document.getElementById("pp").innerHTML = opt;
+        };
     </script>
 </head>
 <body>
-    <p>Wybierz swój kolor: 
-        <select id="col">
-            <option selected="selected" class="red" value="red">Czerwony</option>
-            <option class="ble" value="ble">Niebieski</option>
-            <option class="ylw" value="ylw">Żółty</option>
-            <option class="grn" value="grn">Zielony</option>
-            <option class="pur" value="pur">Fioletowy</option>
-            <option class="org" value="org">Pomarańczowy</option>
+    <p>Wybierz kolor tła: 
+        <select onchange="background_color()" id="col">
+            <option selected value="">Brak</option>
+            <option class="red" value="red">Czerwony</option>
+            <option class="ble" value="blue">Niebieski</option>
+            <option class="ylw" value="yellow">Żółty</option>
+            <option class="grn" value="green">Zielony</option>
+            <option class="pur" value="purple">Fioletowy</option>
+            <option class="org" value="orange">Pomarańczowy</option>
         </select>
     </p>
+    <p id="pp"></p>
 </body>
 </html>
