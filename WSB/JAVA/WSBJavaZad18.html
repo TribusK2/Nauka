@@ -6,34 +6,72 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WSBJavaZad18</title>
     <style>
+    .null{ background-color: none;}
     .red { background-color: red;}
-    .ble { background-color: blue;}
-    .ylw { background-color: yellow;}
-    .grn { background-color: green;}
-    .pur { background-color: purple;}
-    .org { background-color: orange;}
+    .blue { background-color: blue;}
+    .yellow { background-color: yellow;}
+    .green { background-color: green;}
+    .purple { background-color: purple;}
+    .orange { background-color: orange;}
+    #ram{ padding: 10px; border: 2px solid black;}
     </style>
     <script>
+        window.onload = function (){
+            var o = document.cookie;
+            var o_spl = o.split(/=|; /);
+            if (o_spl[0]=="cram") { var oif = o_spl[3] } else { var oif = o_spl[1] };
+            document.body.style.backgroundColor = oif;
+            document.getElementById("pp").innerHTML = oif;
+
+            var or = document.cookie;
+            var or_spl = or.split(/=|; /);
+            if (or_spl[0]=="cram") { var orif = or_spl[1] } else { var orif = or_spl[3] };
+            ram.classList.remove("red", "blue", "yellow", "green", "purple", "orange");
+            ram.classList.add(orif);
+            document.getElementById("pp_r").innerHTML = orif;
+        };
         function background_color(){
-            var col = document.getElementById("col");
-            var opt = col.options[col.selectedIndex].value;
+            var e = document.getElementById("col");
+            var opt = e.options[e.selectedIndex].value;
             document.body.style.backgroundColor = opt;
             document.getElementById("pp").innerHTML = opt;
+            document.cookie = "color="+opt;
+        };    
+        function background_color_r(){
+            var ramka = document.getElementById("ram");
+            var er = document.getElementById("col_r");
+            var optr = er.options[er.selectedIndex].value;
+            ram.classList.remove("red", "blue", "yellow", "green", "purple", "orange");
+            ram.classList.add(optr);
+            document.getElementById("pp_r").innerHTML = optr;
+            document.cookie = "cram="+optr;
+
         };
     </script>
 </head>
 <body>
     <p>Wybierz kolor tła: 
         <select onchange="background_color()" id="col">
-            <option selected value="">Brak</option>
+            <option value="null">Brak</option>
             <option class="red" value="red">Czerwony</option>
-            <option class="ble" value="blue">Niebieski</option>
-            <option class="ylw" value="yellow">Żółty</option>
-            <option class="grn" value="green">Zielony</option>
-            <option class="pur" value="purple">Fioletowy</option>
-            <option class="org" value="orange">Pomarańczowy</option>
-        </select>
+            <option class="blue" value="blue">Niebieski</option>
+            <option class="yellow" value="yellow">Żółty</option>
+            <option class="green" value="green">Zielony</option>
+            <option class="purple" value="purple">Fioletowy</option>
+            <option class="orange" value="orange">Pomarańczowy</option>
+        </select> <span id="pp"></span>
     </p>
-    <p id="pp"></p>
+    <div id=ram>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cupiditate amet quam nostrum, ullam ea explicabo fugiat, officia in cum minus quidem deserunt incidunt corporis blanditiis quaerat odio aliquam nisi.</div>
+    <p>Wybierz kolor ramki: 
+            <select onchange="background_color_r()" id="col_r">
+                <option value="null">Brak</option>
+                <option class="red" value="red">Czerwony</option>
+                <option class="blue" value="blue">Niebieski</option>
+                <option class="yellow" value="yellow">Żółty</option>
+                <option class="green" value="green">Zielony</option>
+                <option class="purple" value="purple">Fioletowy</option>
+                <option class="orange" value="orange">Pomarańczowy</option>
+            </select> <span id="pp_r"></span>
+        </p>
 </body>
 </html>
