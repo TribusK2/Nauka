@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WSBJavaZad18</title>
     <style>
-    .null{ background-color: none;}
+    .white { background-color: white;}
     .red { background-color: red;}
     .blue { background-color: blue;}
     .yellow { background-color: yellow;}
@@ -19,16 +19,18 @@
         window.onload = function (){
             var o = document.cookie;
             var o_spl = o.split(/=|; /);
-            if (o_spl[0]=="cram") { var oif = o_spl[3] } else { var oif = o_spl[1] };
-            document.body.style.backgroundColor = oif;
-            document.getElementById("pp").innerHTML = oif;
+            var str = o_spl.indexOf("color");
+            var pos = o_spl.slice(str+1, str+2);
+            document.body.style.backgroundColor = pos;
+            document.getElementById("pp").innerHTML = pos;
 
             var or = document.cookie;
             var or_spl = or.split(/=|; /);
-            if (or_spl[0]=="cram") { var orif = or_spl[1] } else { var orif = or_spl[3] };
-            ram.classList.remove("red", "blue", "yellow", "green", "purple", "orange");
-            ram.classList.add(orif);
-            document.getElementById("pp_r").innerHTML = orif;
+            var strr = or_spl.indexOf("cram");
+            var posr = or_spl.slice(strr+1, strr+2);
+            ram.classList.remove("white", "red", "blue", "yellow", "green", "purple", "orange");
+            ram.classList.add(posr);
+            document.getElementById("pp_r").innerHTML = posr;
         };
         function background_color(){
             var e = document.getElementById("col");
@@ -41,7 +43,7 @@
             var ramka = document.getElementById("ram");
             var er = document.getElementById("col_r");
             var optr = er.options[er.selectedIndex].value;
-            ram.classList.remove("red", "blue", "yellow", "green", "purple", "orange");
+            ram.classList.remove("white", "red", "blue", "yellow", "green", "purple", "orange");
             ram.classList.add(optr);
             document.getElementById("pp_r").innerHTML = optr;
             document.cookie = "cram="+optr;
@@ -52,7 +54,7 @@
 <body>
     <p>Wybierz kolor tła: 
         <select onchange="background_color()" id="col">
-            <option value="null">Brak</option>
+            <option class="white" value="white">Brak</option>
             <option class="red" value="red">Czerwony</option>
             <option class="blue" value="blue">Niebieski</option>
             <option class="yellow" value="yellow">Żółty</option>
@@ -64,7 +66,7 @@
     <div id=ram>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cupiditate amet quam nostrum, ullam ea explicabo fugiat, officia in cum minus quidem deserunt incidunt corporis blanditiis quaerat odio aliquam nisi.</div>
     <p>Wybierz kolor ramki: 
             <select onchange="background_color_r()" id="col_r">
-                <option value="null">Brak</option>
+                <option class="white" value="white">Brak</option>
                 <option class="red" value="red">Czerwony</option>
                 <option class="blue" value="blue">Niebieski</option>
                 <option class="yellow" value="yellow">Żółty</option>
