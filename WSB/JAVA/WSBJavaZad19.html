@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad19</title>
+    <style>
+    #time{
+        background-image: linear-gradient(to bottom right, red,yellow,white);
+        text-align: center;
+        border: 10px outset yellow;
+        width: 200px; height: 50px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 30px;
+        border-radius: 50px;
+    }
+    #time p{
+        color: darkolivegreen;
+        margin: 8px; 
+    }
+    #stoper{
+        width: 200px;
+        margin-top: 30px; margin-left: auto; margin-right: auto;
+        text-align: center;
+        height: 30px;
+        border: 2px solid darkolivegreen;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 20px;
+        padding: 0px;
+        border-radius: 10px;
+    }
+    #stoper p{
+        color: darkolivegreen;
+        margin: 4px;
+    }
+    #start, #stop, #reset{
+        background-image: radial-gradient(blue,darkolivegreen);
+        font-size: 15px;
+        font-weight: bold;
+        border: 5px outset darkgoldenrod;
+        margin-top: 20px;
+        padding: 5px;
+    }
+    #start:hover, #stop:hover, #reset:hover{
+        background-image: radial-gradient(blue,darkolivegreen);
+        font-size: 15px;
+        font-weight: bold;
+        border: 5px outset darkblue;
+        margin-top: 20px;
+        padding: 5px;
+    }
+    #start:active, #stop:active, #reset:active{
+        background-image: radial-gradient(red,darkolivegreen);
+        font-size: 15px;
+        font-weight: bold;
+        border: 5px inset darkblue;
+        margin-top: 20px;
+        padding: 5px;
+    }
+    </style>
+    <script>
+        var ss = 0;
+        var stt;
+        var int = setInterval(mytime, 1000);
+        document.getElementById("sto").innerHTML = ss;
+        function mytime(){
+            var d = new Date ().toLocaleTimeString();
+            document.getElementById("time_p").innerHTML = d;
+        }
+        function start(){
+            clearInterval(stt);
+            stt = setInterval(start_time, 1);
+        }
+        function start_time(){
+            ss += 1;
+            document.getElementById("sto").innerHTML = ss;
+        }
+        function stop(){
+            clearInterval(stt);
+        }
+        function reset(){
+            ss = 0;
+            document.getElementById("sto").innerHTML = ss;
+        }
+    </script>
+</head>
+<body>
+    <div id="time">
+        <p id="time_p"></p>
+    </div>
+    <div id="stoper">
+        <p><span id="sto">0</span> ms.</p>
+        <button id="start" onclick="start()">Start</button>
+        <button id="stop" onclick="stop()">Stop</button>
+        <button id="reset" onclick="reset()">Reset</button>
+    </div>
+</body>
+</html>
