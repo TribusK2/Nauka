@@ -1,0 +1,134 @@
+<html>
+
+<head>
+<style>
+    .highlight-green{
+        color:  green;
+        font-weight: 900;
+    }
+</style>
+
+<script>
+    window.onresize = function(){ //zmiana rozmiaru przeglądarki
+        console.log(window.innerWidth);
+    };
+    //window.open("http://wsb.pl", "_blank");
+    console.log(window.location.href);
+    //window.location.assign("http://m.wp.pl");
+    //window.navigator.geolocation
+    
+    console.log(navigator.appVersion);
+    console.log(navigator.userAgent);
+    console.log(navigator.language);
+    console.log(/Mobi|Android/i.test(navigator.userAgent));
+    
+    var interval; //zmienna widoczna wszędzie
+    window.onload = function(){ //lista kompetencji do podniesienia
+       //pobranie searchText z ciasteczka
+       //console.log(document.cookie); //pobranie ciasteczka 
+                             //searchTodos=BBBB
+       var cookieKeyValue = document.cookie.split("=");
+       console.log(cookieKeyValue); 
+       if(cookieKeyValue[0] == "searchTodos"){
+           document.getElementById("tSearchTodos").value = 
+                    cookieKeyValue[1];
+       }
+
+       interval = setInterval(function(){
+          document.getElementById("pTime").innerHTML = 
+                                    new Date().toLocaleString("pl-PL");
+       }, 1000); //kod wywoływany co 1 sek.
+       
+       var tNewTodo = document.getElementById("tTodo");
+       var tSearchTodos = document.getElementById("tSearchTodos");
+       var olTodos = document.getElementById("olTodos");
+        
+       tNewTodo.onkeyup = function(event){ //event - dane o zdarzeniu
+           if(event.keyCode == 13) //każdy klawisz na klawiaturze ma swój kod liczbowy
+           {
+               var newTodo = tNewTodo.value; //tekst
+               
+               var liNewTodo = document.createElement("li"); //<li></li>
+               var textNodeNewTodo = document.createTextNode(newTodo); //tekst jako node
+               liNewTodo.appendChild(textNodeNewTodo); //np. <li>JavaScript</li>
+
+               var btnDeleteTodo = document.createElement("button"); //<button></button>               
+               var textNodeDeleteTodo = document.createTextNode("X"); //tekst jako node
+               btnDeleteTodo.appendChild(textNodeDeleteTodo);//<button>X</button> 
+               btnDeleteTodo.onclick = function(event){ //nazwa Todo
+                    var todos = document.getElementById("olTodos");
+                    todos.removeChild(event.target.parentNode); 
+                    //event target pobiera kontrolkę mna której wystąpiło zdarzenie
+                    //parent node - element 1 poziom wyżej - <LI>
+                }
+               //btnDeleteTodo.setAttribute("onclick", "alert('" + newTodo +  "')");
+               liNewTodo.appendChild(btnDeleteTodo); //dodanie przycisku na końcu <li>
+               olTodos.appendChild(liNewTodo); //dodanie do listy numerowanej             
+           }   
+       };
+       tSearchTodos.onkeyup = function(event){ //event - dane o zdarzeniu
+           if(event.keyCode == 13) //każdy klawisz na klawiaturze ma swój kod liczbowy
+           {
+               clearInterval(interval); //zatrzymanie cykliczenego wywoływania kodu
+               
+               var cookieDate = new Date();
+               cookieDate.setMonth(cookieDate.getMonth() + 1);
+               document.cookie = "searchTodos=" + tSearchTodos.value + 
+                 "; expires=" + cookieDate.toUTCString();
+               
+               //1. Pobranie wartości szukanego tekstu z tSearchTodos
+               //2. for na <ol id="olTodos">
+               //3.   if  (olTodos[i]... == tSearchTodos)
+               //4.       olTodos[i].setAttribute("style" ...)
+           }
+        };
+    };    
+    function stopTime(){
+        clearInterval(interval);
+    }
+</script>
+</head>
+
+<body>
+    <p id="pTime"></p> <button onclick="stopTime()">Zatrzymaj</button>
+    <div>Add new todo <input id="tTodo" type="text" /> </div>
+    <div>Search todos <input id="tSearchTodos" type="text" /> </div>
+    <ol id="olTodos">
+       
+    </ol>              
+</body>
+</html>
+
+
+
+<!-- {
+    //var toDos = ["TypeScript", "HTML5", "JQuery", "BOOTSTRAP"];
+    //alert(toDos[2]); //jQuery
+    /*toDos[1] = "Xamarin"; //zmiana
+    toDos.push("AngularJS"); //dodanie
+    toDos.splice(1,1); //usuń od 1 indeksu 1 element
+    alert(toDos.sort());*/
+    
+    //var clone = toDos.slice(); //klonowanie tablicy
+    //clone[0] = "JavaScript";
+    //alert(toDos); //sklonowanie tablicy
+    //$.extend(true, {aa: "aa"}, document.getElementById("tToDo"));
+    } -->
+
+    <!-- //alert(document.getElementsByTagName("p")[0].innerHTML);
+           //var paragraphs =  document.getElementsByTagName("p"); //pobranie wszystkich paragrafów na stronie
+           //var paragraphs =  document.querySelectorAll("#dTodos p"); //pobranie wszystkich paragrafów na stronie
+           //for(var i = 0; i < paragraphs.length; i++) {   //0,1,2,3,4 < 5  
+               //if(paragraphs[i].innerHTML.includes("Mam pojęcie")){
+                  //paragraphs[i].style.color = "Green";
+                  //paragraphs[i].style["font-weight"] = "bold";
+                  //paragraphs[i].setAttribute("style","color: green; font-weight:900");
+                  //paragraphs[i].setAttribute("class","highlight-green");
+                  //paragraphs[i].classList.add("highlight-green");
+                //}
+           //}
+        //    paragraphs.forEach(function(paragraph){
+        //        if(paragraph.innerHTML == "Mam pojęcie"){
+        //             paragraph.style.color = "Green";
+        //        }
+        //    });  //1 iteracja - przekazanie 1 paragrafu -->

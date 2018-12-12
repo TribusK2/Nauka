@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WSBJavaZad19</title>
     <style>
-    #time{
+    #time {
         background-image: linear-gradient(to bottom right, red,yellow,white);
         text-align: center;
         border: 10px outset yellow;
@@ -15,11 +15,11 @@
         font-size: 30px;
         border-radius: 50px;
     }
-    #time p{
+    #time p {
         color: darkolivegreen;
         margin: 8px; 
     }
-    #stoper{
+    #stoper {
         width: 200px;
         margin-top: 30px; margin-left: auto; margin-right: auto;
         text-align: center;
@@ -30,11 +30,11 @@
         padding: 0px;
         border-radius: 10px;
     }
-    #stoper p{
+    #stoper p {
         color: darkolivegreen;
         margin: 4px;
     }
-    #start, #stop, #reset{
+    #start, #stop, #reset {
         background-image: radial-gradient(blue,darkolivegreen);
         font-size: 15px;
         font-weight: bold;
@@ -42,7 +42,7 @@
         margin-top: 20px;
         padding: 5px;
     }
-    #start:hover, #stop:hover, #reset:hover{
+    #start:hover, #stop:hover, #reset:hover {
         background-image: radial-gradient(blue,darkolivegreen);
         font-size: 15px;
         font-weight: bold;
@@ -50,8 +50,8 @@
         margin-top: 20px;
         padding: 5px;
     }
-    #start:active, #stop:active, #reset:active{
-        background-image: radial-gradient(red,darkolivegreen);
+    #start:active, #stop:active, #reset:active {
+        background-image: radial-gradient(yellow,darkolivegreen);
         font-size: 15px;
         font-weight: bold;
         border: 5px inset darkblue;
@@ -64,24 +64,24 @@
         var stt;
         var int = setInterval(mytime, 1000);
         document.getElementById("sto").innerHTML = ss;
-        function mytime(){
+        function mytime() {
             var d = new Date ().toLocaleTimeString();
             document.getElementById("time_p").innerHTML = d;
         }
-        function start(){
-            clearInterval(stt);
-            stt = setInterval(start_time, 1);
+        function start() {
+          clearInterval(stt);
+          stt = setInterval(start_time, 1);
         }
-        function start_time(){
-            ss += 1;
-            document.getElementById("sto").innerHTML = ss;
+        function start_time() {
+          ss += 1;
+          document.getElementById("sto").innerHTML = ss;
         }
-        function stop(){
-            clearInterval(stt);
+        function stop() {
+          clearInterval(stt);
         }
-        function reset(){
-            ss = 0;
-            document.getElementById("sto").innerHTML = ss;
+        function reset() {
+          ss = 0;
+          document.getElementById("sto").innerHTML = ss;
         }
     </script>
 </head>

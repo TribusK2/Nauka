@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WSBJavaZad21</title>
+    <style>
+    p span {
+        background-image: radial-gradient(white, yellow, yellow);
+        font-size: 40px;
+        width: 50px; height: 50px;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 50px;
+        float: left;
+        text-align: center;
+        border: 1px solid rgb(240, 240, 0);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .los {
+        background-color: yellow;
+        font-size: 20px;
+        padding: 10px;
+    }
+    </style>
+    <script>
+        var spa = [];
+        function losuj () {
+            var rand = Math.floor(Math.random() * 48) + 1;
+            spa.push(rand);
+            if (spa[0] == undefined)
+              {document.getElementById("spa0").innerHTML = ""}
+              else {document.getElementById("spa0").innerHTML = spa[0]}
+            if (spa[1] == undefined)
+              {document.getElementById("spa1").innerHTML = ""}
+              else {document.getElementById("spa1").innerHTML = spa[1]}
+            if (spa[2] == undefined)
+              {document.getElementById("spa2").innerHTML = ""}
+              else {document.getElementById("spa2").innerHTML = spa[2]}
+            if (spa[3] == undefined)
+              {document.getElementById("spa3").innerHTML = ""}
+              else {document.getElementById("spa3").innerHTML = spa[3]}
+            if (spa[4] == undefined)
+              {document.getElementById("spa4").innerHTML = ""}
+              else {document.getElementById("spa4").innerHTML = spa[4]}
+            if (spa[5] == undefined)
+              {document.getElementById("spa5").innerHTML = ""}
+              else {document.getElementById("spa5").innerHTML = spa[5]}
+            
+            if (spa.length > 6) 
+              {return;}
+            document.getElementById("art").innerHTML = spa;  
+        }
+        function kasuj() {
+            document.getElementById("spa0").innerHTML = "";
+            document.getElementById("spa1").innerHTML = "";
+            document.getElementById("spa2").innerHTML = "";
+            document.getElementById("spa3").innerHTML = "";
+            document.getElementById("spa4").innerHTML = "";
+            document.getElementById("spa5").innerHTML = "";
+            spa.splice(0, 6);
+        }
+    </script>
+</head>
+<body>
+    <button class="los" onclick="losuj()">LOSUJ</button>
+    <button class="los" onclick="kasuj()">KASUJ</button>
+    <p>
+        <span id="spa0"></span>
+        <span id="spa1"></span>
+        <span id="spa2"></span>
+        <span id="spa3"></span>
+        <span id="spa4"></span>
+        <span id="spa5"></span>
+    </p>
+    <p id="art">???</p>
+</body>
+</html>
