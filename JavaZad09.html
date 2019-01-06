@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaZad09</title>
+</head>
+<body>
+    <input type="text" id="task">
+    <button id="add">Dodaj task</button>
+    <div id="todosList"></div>
+    <script>
+        function getTodos(){
+            var todos = [];
+            var todos_storage = localStorage.getItem("todo");
+            if (todos_storage !== null){
+                todos = JSON.parse(todos_storage)
+            }
+            return todos;
+        }
+        function addTask(){
+            var task = document.getElementById("task").value;
+            var todos = getTodos();
+            todos.push(task);
+            localStorage.setItem("todo", JSON.stringify(todos));
+            showTasks();
+        }
+        function removeTask(){
+            var id = this.getAttribute("id");
+            var todos = getTodos();
+            todos.splice(id, 1);
+            localStorage.setItem("todo", JSON.stringify(todos));
+            showTasks();
+        }
+        function showTasks(){
+            var todos = getTodos();
+
+            var html = "<ul>";
+            for (var i=0; i<todos.length; i++){
+                html += "<li>" + todos[i] + "<button class='remove' id='" + i + "'>X</button>" + "</li>"
+            }
+            html += "</ul>";
+            document.getElementById("todosList").innerHTML = html;
+            var removeButtons = document.getElementsByClassName("remove")
+            for(var i=0; i<removeButtons.length; i++){
+                removeButtons[i].addEventListener("click", removeTask)
+            }
+        }
+        document.getElementById("add").addEventListener("click", addTask);
+        showTasks();
+    </script>
+</body>
+</html>
