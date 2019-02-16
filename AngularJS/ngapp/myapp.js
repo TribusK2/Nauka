@@ -26,10 +26,31 @@ MyApp.controller("MojController", function($scope){
         {imie: "Małgosia", miejsce: "D2", wiek: 44, dostepnosc: true},
     ];
 
+    // dane do AJSZad05
     $scope.reset = function(){
         for (i=0; i<$scope.lista.length; i++){
-        $scope.lista[i].dostepnosc = true
+        $scope.lista[i].dostepnosc = true;
         };   
+    };
+
+    $scope.dodajosobe = function(){
+        $scope.lista.push({
+            imie: $scope.nowaosoba.imie,
+            miejsce: $scope.nowaosoba.miejsce,
+            wiek: $scope.nowaosoba.wiek,
+            dostepnosc: true
+        });
+        $scope.nowaosoba.imie = "";
+        $scope.nowaosoba.miejsce = "";
+        $scope.nowaosoba.wiek = "";
+    };
+    // Zamiast ponizszej funkcji można uzyć $index bezpośrednio w ng-click (linijka 27 w html)
+    // $scope.usunosobe = function(x){
+    //     var index = $scope.lista.indexOf(x);
+    //     $scope.lista.splice(x, 1);
+    // }
+    $scope.log = function(){
+        console.log($scope.lista)
     };
 });
 

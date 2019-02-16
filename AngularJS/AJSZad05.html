@@ -23,10 +23,32 @@
         <ul>
             <li ng-repeat="goscie in lista | orderBy: sortuj | filter: {imie:szukaj}" ng-show="goscie.dostepnosc">
                 <button style="font-weight: bold" ng-click="goscie.dostepnosc = false">X</button>
-                {{goscie.imie}}, wiek: {{goscie.wiek | currency: 'lat ': 0 }} - miejsce: {{goscie.miejsce}} 
+                {{goscie.imie}}, {{goscie.wiek | currency: 'lat ': 0 }} - miejsce: {{goscie.miejsce}}
+                <button style="position: absolute; left: 400px" ng-click="lista.splice($index,1)">Usuń</button>
             </li>
         </ul>
-        <button ng-click="reset()">Zresetuj</button>
+        <button ng-click="reset()">Zresetuj</button> <button ng-click="log()">Sprawdź tablice w konsoli</button>
+        <form ng-submit="dodajosobe()">
+            <p>Dodaj nową osobę:</p>
+            <input type="text" style="margin: 10px" placeholder="Imię" ng-model="nowaosoba.imie"><br>
+            <input type="number" style="margin: 10px"v placeholder="Wiek" ng-model="nowaosoba.wiek"><br>
+            <input type="text" list="opcje" style="margin: 10px" placeholder="Miejsce" ng-model="nowaosoba.miejsce"><br>
+                <datalist id="opcje">
+                    <option value="A1">
+                    <option value="A2">
+                    <option value="B1">
+                    <option value="B2">
+                    <option value="C1">
+                    <option value="C2">
+                    <option value="D1">
+                    <option value="D2">
+                    <option value="E1">
+                    <option value="E2">
+                    <option value="F1">
+                    <option value="F2">
+                </datalist>
+            <input type="submit" value="Dodaj"/>
+        </form>
     </div>
 </body>
 </html>
