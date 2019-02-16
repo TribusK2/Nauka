@@ -13,14 +13,20 @@
     <div ng-controller="MojController">
         <!-- Implikujemy kod html z innego pliku -->
         <header ng-include="'header.html'"></header> 
+
+        <button ng-click="sortuj = 'imie'">Sortuj po imieniu</button>
+        <button ng-click="sortuj = 'wiek'">Sortuj po wieku</button>
         
-        <input type="text" ng-model="szukaj" placeholder="Szukaj">
+        <input type="text" ng-model="szukaj" placeholder="Wyszukaj imię">
         <p>{{tytul}}</p>
+        
         <ul>
-            <li ng-repeat="goscie in lista | orderBy: '-imie' | filter: szukaj" ng-show="{{goscie.dostepnosc}}">
-                {{goscie.imie}}, wiek: {{goscie.wiek | currency: 'lat ': 0 }} - miejsce: {{goscie.miejsce}}
+            <li ng-repeat="goscie in lista | orderBy: sortuj | filter: {imie:szukaj}" ng-show="goscie.dostepnosc">
+                <button style="font-weight: bold" ng-click="goscie.dostepnosc = false">X</button>
+                {{goscie.imie}}, wiek: {{goscie.wiek | currency: 'lat ': 0 }} - miejsce: {{goscie.miejsce}} 
             </li>
         </ul>
+        <button ng-click="reset()">Zresetuj</button>
     </div>
 </body>
 </html>
