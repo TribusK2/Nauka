@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl" ng-app="MojaApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AJSZad06</title>
+    <script src="ngapp/angular.min.js"></script>
+    <script src="ngapp/angular-route.min.js"></script>
+    <script src="ngapp/myapp.js"></script>
+    
+</head>
+<body>
+    
+        <!-- Implikujemy kod html z innego pliku -->
+        <header ng-include="'header.html'"></header> 
+
+        <!-- Implikujemy zmienny kod html z innego pliku, widok "podstrony". Trzeba pobrać "angular-route.min.js" -->
+        <main ng-view></main>
+
+    
+</body>
+</html>

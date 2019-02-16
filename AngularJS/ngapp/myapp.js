@@ -1,12 +1,30 @@
-var MyApp = angular.module("MojaApp", []);
+var MyApp = angular.module('MojaApp', ['ngRoute']);
 
-MyApp.config(function(){});
+// config ustawiamy do AJSZad06
+MyApp.config(['$routeProvider', function($routeProvider){
+
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'views/home.html'
+        })
+        .when('/about', {
+            templateUrl: 'views/about.html',
+            controller: 'MojController'
+        })
+        .when('/contact', {
+            templateUrl: 'views/contact.html'
+        })
+        .otherwise({
+            redirectTo: '/home'
+        });
+
+}]);
 
 
 MyApp.run(function(){});
 
-
-MyApp.controller("MojController", function($scope){
+// dodajemy naiwisy kwadroatoe oraz dodatkowe '$scope', żeby zabezpieczyc sie przed minifikacją.
+MyApp.controller("MojController", ['$scope',function($scope){
     // Dane do ASJZad03
     $scope.wiadomosc = "Moje kolory";
 
@@ -52,5 +70,5 @@ MyApp.controller("MojController", function($scope){
     $scope.log = function(){
         console.log($scope.lista)
     };
-});
+}]);
 
