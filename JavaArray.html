@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Definiowanie tablic</title>
+</head>
+<body>
+    <p id="p1"></p>
+
+    <script>
+        var car1 = new Object()
+        car1.speed = 150;
+        car1.driver = "Tomek";
+        car1.drive = function(){
+            console.log("Jadę");
+        };
+        console.log(car1);
+
+        var car2 = {speed:120, driver:"Marta", function(){alert("stop")}};
+        console.log(car2);
+    </script>
+</body>
+</html>
