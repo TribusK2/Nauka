@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Działanie funkcji</title>
+    
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+    <p id="p3"></p>
+
+    <script>
+
+        function getAverage(a,b){
+            var average = (a+b)/2;
+            return average;
+        };  
+        var getAv = getAverage(3,5);         
+        document.getElementById("p1").innerHTML = getAv;
+            
+
+        function getAverage2(c,d){
+            var average2 = (c+d)/2;
+            return average2;
+        };           
+        document.getElementById("p2").innerHTML = getAverage2(30,50);
+            
+
+        function getAverage3(e,f){
+            var average3 = (e+f)/2;
+            document.getElementById("p3").innerHTML = average3;
+        };           
+        getAverage3(300,500);
+    
+    </script>
+</body>
+</html>
